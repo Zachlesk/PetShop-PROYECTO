@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('register', [UsersController::class, 'register']);
 Route::post('login', [UsersController::class, 'login']);
+
+Route::resource('mascotas', MascotaController::class);
 
 Route::middleware('auth:api')->group(function () {
     Route::post('logout', [UsersController::class, 'logout']);
